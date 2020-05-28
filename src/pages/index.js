@@ -1,21 +1,65 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+// import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+import { RichText } from "prismic-reactjs";
+import BlogPosts from '../components/blogPosts';
 
-export default IndexPage
+
+export default ({ data }) => {
+  const doc = data.prismic.allAbout_pages.edges.slice(0, 1).pop();
+  const posts = data.prismic.allPages.edges;
+
+  if (!doc) return null
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <div>
+        {/* <h1>{doc.node.title[0].text}</h1> */}
+        <h1>{RichText.asText(doc.node.title)}</h1>
+        {RichText.render(doc.node.text)}
+        {/* <h1>{RichText.asText(doc.node.headline)}</h1>
+        <p>{RichText.asText(doc.node.description)}</p> */}
+      </div>
+      <BlogPosts posts={posts} />
+    </Layout>
+  )
+}
+
+export const query = graphql`query MyQuery {
+  prismic {
+    allPages {
+      edges {
+        node {
+          title
+          page_banner
+          text
+          _linkType
+          _meta {
+            uid
+            id
+            type
+          }
+        }
+      }
+    }
+    allAbout_pages {
+      edges {
+        node {
+          title
+          text
+          _linkType
+          _meta {
+            uid
+            type
+            id
+          }
+        }
+      }
+    }
+  }
+}
+`

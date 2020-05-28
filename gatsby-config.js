@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Kylo Robinson Template Website`,
+    description: `A template Gatsby JS site built by Kylo Robinsom`,
+    author: `@kylorobs`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -18,8 +18,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Kylo Robinson Template`,
+        short_name: `kylo_robinson`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
@@ -30,5 +30,19 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-prismic-graphql`,
+      options: {
+        repositoryName: 'gatsby-test-kylo',
+        previews: true, 
+        path: '/preview',
+        pages: [{
+          type: 'Page',          // Custom type of the document
+          match: '/:uid',   // Pages will be generated in this pattern
+          path: '/blog-preview', // Placeholder route for previews
+          component: require.resolve('./src/templates/page.js') // Template file
+        }]
+      }
+    }   
   ],
 }
