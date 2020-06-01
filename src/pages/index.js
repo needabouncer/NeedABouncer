@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 
 import { RichText } from "prismic-reactjs";
 import BlogPosts from '../components/blogPosts';
+import Typography from '@material-ui/core/Typography';
 
 
 export default ({ data }) => {
@@ -19,7 +20,10 @@ export default ({ data }) => {
       <SEO title="Home" />
       <div>
         {/* <h1>{doc.node.title[0].text}</h1> */}
-        <h1>{RichText.asText(doc.node.title)}</h1>
+        <Typography variant="h1" component="h2" gutterBottom>
+          {RichText.asText(doc.node.title)}
+        </Typography>
+        
         {RichText.render(doc.node.text)}
         {/* <h1>{RichText.asText(doc.node.headline)}</h1>
         <p>{RichText.asText(doc.node.description)}</p> */}
