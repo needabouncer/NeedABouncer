@@ -5,6 +5,8 @@ import { RichText } from "prismic-reactjs";
 import Layout from '../components/layout';
 import SliceRenderer from '../components/slices/SliceRenderer';
 
+
+
 export const query = graphql`
 query MyPageQuery($uid: String) {
     prismic {
@@ -67,6 +69,7 @@ export default ({ data }) => {
     if (!doc) return null
     return (
       <Layout>
+
         <Link to="/">
           <span>Back to home</span>
         </Link>

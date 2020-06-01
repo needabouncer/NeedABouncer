@@ -4,10 +4,13 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 // import Image from "../components/image"
 import SEO from "../components/seo"
+import PageContent from '../components/layout/pageContent';
 
 import { RichText } from "prismic-reactjs";
 import BlogPosts from '../components/blogPosts';
 import Typography from '@material-ui/core/Typography';
+
+import LandingHeader from '../components/content/landingHeader/landingHeader';
 
 
 export default ({ data }) => {
@@ -16,20 +19,25 @@ export default ({ data }) => {
 
   if (!doc) return null
   return (
+    <React.Fragment>
     <Layout>
+      <PageContent>
+      <LandingHeader></LandingHeader>
       <SEO title="Home" />
       <div>
-        {/* <h1>{doc.node.title[0].text}</h1> */}
-        <Typography variant="h1" component="h2" gutterBottom>
+        <h1>{doc.node.title[0].text}</h1>
+        {/* <Typography variant="h1" component="h2" gutterBottom>
           {RichText.asText(doc.node.title)}
-        </Typography>
+        </Typography> */}
         
         {RichText.render(doc.node.text)}
         {/* <h1>{RichText.asText(doc.node.headline)}</h1>
         <p>{RichText.asText(doc.node.description)}</p> */}
       </div>
       <BlogPosts posts={posts} />
+      </PageContent>
     </Layout>
+    </React.Fragment>
   )
 }
 
