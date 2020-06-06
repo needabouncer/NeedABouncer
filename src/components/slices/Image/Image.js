@@ -3,7 +3,6 @@ import Img from "gatsby-image"
 
 const Image = ({ slice }) => {
     if(slice){  
-        console.log(slice.primary.uploaded_imageSharp)	
         return (
             <div className="content">
                 {!slice.primary.use_dimensions? 
