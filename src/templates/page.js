@@ -1,9 +1,11 @@
 
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { RichText } from "prismic-reactjs";
 import Layout from '../components/layout';
 import SliceRenderer from '../components/slices/SliceRenderer';
+import PageContent from '../components/layout/pageContent';
+import CCTV from '../components/content/cctv/cctv';
 
 
 
@@ -35,6 +37,14 @@ query MyPageQuery($uid: String) {
                   label
                   primary {
                     embed_link
+                  }
+                }
+                ... on PRISMIC_PageBodyAccordion {
+                  type
+                  label
+                  primary {
+                    content
+                    heading
                   }
                 }
                 ... on PRISMIC_PageBodyImage {
@@ -69,16 +79,15 @@ export default ({ data }) => {
     if (!doc) return null
     return (
       <Layout>
-
-        <Link to="/">
-          <span>Back to home</span>
-        </Link>
-        <h1>{RichText.asText(doc.node.title)}</h1>
-        <span>
-          <img src={doc.node.page_banner.url}></img>
-        </span>
-        <div>{RichText.render(doc.node.text)}</div>
-        <SliceRenderer slices={doc.node.body} />
+        <CCTV />
+        <PageContent>
+          <h1>{RichText.asText(doc.node.title)}</h1>
+          <span>
+            {/* <img src={doc.node.page_banner.url}></img> */}
+          </span>
+            <div>{RichText.render(doc.node.text)}</div>
+            <SliceRenderer slices={doc.node.body} />
+        </PageContent>
       </Layout>
     )
   }

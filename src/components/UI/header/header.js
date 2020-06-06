@@ -1,25 +1,70 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useStaticQuery, graphql } from "gatsby"
 import { Link } from 'gatsby'
 import MenuLinks from './menuLinks.js'
 import Burger from './burger.js'
 import HeaderStyles from "./headerStyles.module.css"
 import PropTypes from "prop-types"
+
 // import logo from './logo.png'
 
-class Header extends React.Component{
+const Header = props => {
 
-  state = {
-    'activeMenu': false
+  const [active, setMenu] = useState(false);
+
+  const data = useStaticQuery(graphql`
+  query {
+    prismic {
+      allNavigation_menus {
+        edges {
+          node {
+            body {
+              ... on PRISMIC_Navigation_menuBodyMenu_link {
+                type
+                label
+                primary {
+                  page_title
+                  short_url
+                }
+              }
+              ... on PRISMIC_Navigation_menuBodyLogo {
+                type
+                label
+                primary {
+                  logo_imageSharp {
+                    childImageSharp {
+                      fluid {
+                        ...GatsbyImageSharpFluid
+                      }
+                      fixed {
+                        ...GatsbyImageSharpFixed
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
+`);
 
-  toggleActiveMenu = () => {
-    this.state.activeMenu ? this.setState({'activeMenu': false}) : this.setState({'activeMenu': true});
-  }
+    const doc = data.prismic.allNavigation_menus.edges.slice(0, 1).pop()
+    if (!doc) return null
 
-  render(){
+    const filterMenuLinks = () => {
+      return doc.node.body.filter(node => node.type === 'menu_link');
+    }
+
+
+    const toggleActiveMenu = () => {
+      active? setMenu(false) : setMenu(true);
+    }
 
     let burgerClass= [HeaderStyles.burgerLinks]
-    if (this.state.activeMenu){
+    if (active){
       burgerClass.push(HeaderStyles.activeBurger);
     }
     burgerClass = burgerClass.join(' ')
@@ -29,14 +74,13 @@ class Header extends React.Component{
    <div className={HeaderStyles.container}>
         <div className={HeaderStyles.logoContainer}>
             {/* <Link to="/"><img alt="mbrfilms logo" src={logo} /></Link> */}
-            {/* <Link to="/">{this.props.siteTitle}</Link> */}
+            <Link to="/" activeStyle={{color: '#59F8E8'}}>Home</Link>
         </div>
-        <MenuLinks class={HeaderStyles.linksContainer} />
-        <MenuLinks class={burgerClass} />
-        <Burger onClick={this.toggleActiveMenu} />
+        <MenuLinks links={filterMenuLinks()}class={HeaderStyles.linksContainer} />
+        <MenuLinks links={filterMenuLinks()} class={burgerClass} />
+        <Burger onClick={toggleActiveMenu} />
    </div>
     )
-  }
 }
 
   export default Header;

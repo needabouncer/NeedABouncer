@@ -1,74 +1,77 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 // import Image from "../components/image"
 import SEO from "../components/seo"
 import PageContent from '../components/layout/pageContent';
 
-import { RichText } from "prismic-reactjs";
-import BlogPosts from '../components/blogPosts';
-import Typography from '@material-ui/core/Typography';
-
 import LandingHeader from '../components/content/landingHeader/landingHeader';
+import ChipStrip from '../components/content/chipStrip/chipStrip';
 
 
 export default ({ data }) => {
-  const doc = data.prismic.allAbout_pages.edges.slice(0, 1).pop();
-  const posts = data.prismic.allPages.edges;
+  const doc = data.prismic.allHome_ps.edges.slice(0, 1).pop();
 
   if (!doc) return null
+
+
   return (
     <React.Fragment>
-    <Layout>
-      <PageContent>
-      <LandingHeader></LandingHeader>
       <SEO title="Home" />
-      <div>
-        <h1>{doc.node.title[0].text}</h1>
-        {/* <Typography variant="h1" component="h2" gutterBottom>
-          {RichText.asText(doc.node.title)}
-        </Typography> */}
-        
-        {RichText.render(doc.node.text)}
-        {/* <h1>{RichText.asText(doc.node.headline)}</h1>
-        <p>{RichText.asText(doc.node.description)}</p> */}
-      </div>
-      <BlogPosts posts={posts} />
-      </PageContent>
-    </Layout>
+      <Layout>
+        <PageContent>
+          <LandingHeader bannerImage={doc.node.landing_imageSharp.childImageSharp.fluid} ></LandingHeader>
+          <ChipStrip chips={doc.node.primary_services} text={doc.node.sectionPrimaryServices}/>
+          <ChipStrip chips={doc.node.other_services} text={doc.node.section__other_services}/>
+        </PageContent>
+      </Layout>
     </React.Fragment>
   )
 }
 
 export const query = graphql`query MyQuery {
   prismic {
-    allPages {
+    allHome_ps {
       edges {
         node {
-          title
-          page_banner
-          text
-          _linkType
-          _meta {
-            uid
-            id
-            type
+          body {
+            ... on PRISMIC_Home_pBodyButton {
+              type
+              label
+              primary {
+                call_to_action_text
+                button_link {
+                  ... on PRISMIC__ExternalLink {
+                    url
+                    _linkType
+                  }
+                  ... on PRISMIC__FileLink {
+                    _linkType
+                    name
+                    url
+                  }
+                }
+              }
+            }
           }
-        }
-      }
-    }
-    allAbout_pages {
-      edges {
-        node {
-          title
-          text
-          _linkType
-          _meta {
-            uid
-            type
-            id
+          call_to_action
+          landing_image
+          landing_imageSharp {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+              fixed {
+                ...GatsbyImageSharpFixed
+              }
+            }
           }
+          other_services
+          primary_services
+          sectionPrimaryServices
+          section__other_services
+          title
         }
       }
     }

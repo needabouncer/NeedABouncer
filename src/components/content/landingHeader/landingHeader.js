@@ -1,27 +1,38 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Image from '../../image';
 import TextField from '@material-ui/core/TextField';
 import classes from './LandingHeaderStyles.module.css';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
+import Img from "gatsby-image"
+import {Colors} from '../../../constants/colors';
+// import Icon from '@material-ui/core/Icon';
+
+
 
 const useStyles = makeStyles(() => ({
     item: {
       minHeight: '70vh',
+    },
+    heading : {
+        padding: '0.1em'
     }
   }));
 
-//   const inputStyles = makeStyles(() => ({
-//     item: {
-//       margin: '1em 0',
-//     },
-//   }));
+  const usebuttonStyles = makeStyles((theme) => ({
+    button: {
+      backgroundColor: Colors.secondary,
+      marginTop: '1em',
+      color: Colors.primary
+    },
+  }));
+
+
 
 const LandingHeader = props => {
     const styles = useStyles();
+    const buttonStyles = usebuttonStyles()
     // const inputStyle = inputStyles();
      return (
         <div>
@@ -38,7 +49,7 @@ const LandingHeader = props => {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                className={classes.button}
+                                className={buttonStyles.button}
                                 // endIcon={<Icon>send</Icon>}
                             >
                                 Get In Touch
@@ -49,10 +60,11 @@ const LandingHeader = props => {
             </Grid>
             <Grid classes={{item:styles.item}} item xs={12} sm={7}>
                 <div style={{padding: '2em'}}>
-                    <Image></Image>
+                    <Img fluid={props.bannerImage} />
                 </div>
             </Grid>
         </Grid>
+  
         </div>
      )
 }

@@ -1,44 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { Colors } from '../../../constants/colors';
 
 const MenuLinks = (props) => {
 
  return   (
       <div className={props.class}>
         <ul>
-            <li> <Link
-            to="/services/"
-            activeStyle={{
-                color: "red",
-            }}
-            > services
-            </Link>
-            </li>
-            <li> 
-                <Link
-                    to="/training/"
-                    activeStyle={{
-                    color: "red",
-                    }}
-                    > training
-                </Link>
-            </li>
-            <li>
-                <Link
-                    to="/about/"
-                    activeStyle={{
-                        color: "red",
-                    }}> about
-                </Link>
-            </li>
-            <li>
-                <Link
-                    to="/contact/"
-                    activeStyle={{
-                    color: "red",
-                    }}> contact
-                </Link>
-            </li>
+            {props.links.map(menuItem => <li> <Link to={menuItem.primary.short_url} activeStyle={{color: Colors.secondary}}> {menuItem.primary.page_title[0].text} </Link></li>)}
         </ul>
      </div>
     )

@@ -1,12 +1,12 @@
 .container {
     display: flex;
     position: relative;
-    max-width: 100%;
+    width: 100%;
     background-color: #003161;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 4em;
-    /* border-bottom: 1px solid red; */
+    /* border-bottom: 1px solid #59F8E8; */
   }
   
   .linksContainer {
@@ -41,7 +41,7 @@
   }
   
   .linksContainer ul li a:hover {
-    color: red;
+    color: #59F8E8;
   }
   
   .logoContainer {
@@ -66,7 +66,7 @@
       height: 100%;
       top: 0;
       width: 60%;
-      border-left: 3px solid red;
+      border-left: 3px solid #59F8E8;
       padding-top: 5em;
       transition: right 1.5s ease-in-out;
   }
