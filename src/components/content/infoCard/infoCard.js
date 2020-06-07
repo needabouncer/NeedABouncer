@@ -8,7 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import ScrollAnimation from 'react-animate-on-scroll';
-import styles from './InfoCard.module.css';
+import styles from './infoCard.module.css';
 
 import Typography from '@material-ui/core/Typography';
 

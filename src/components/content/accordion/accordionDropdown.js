@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import { linkResolver } from '../../../utils/linkResolver';
 import { RichText } from 'prismic-reactjs';
 import { makeStyles } from '@material-ui/core/styles';
-import classes from './AccordionDropdown.module.css';
+import classes from './accordionDropdown.module.css';
 import ScrollAnimation from 'react-animate-on-scroll';
 
 const useStyles = makeStyles(() => ({
