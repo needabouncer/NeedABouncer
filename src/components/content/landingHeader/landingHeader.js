@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import classes from './landingHeaderStyles.module.css';
@@ -10,35 +10,26 @@ import {Colors} from '../../../constants/colors';
 // import Icon from '@material-ui/core/Icon';
 
 
-
-const useStyles = makeStyles(() => ({
-    item: {
-    //   minHeight: '70vh',
-    },
-    heading : {
-        padding: '0.1em'
-    }
-  }));
-
-  const usebuttonStyles = makeStyles((theme) => ({
+const theme = createMuiTheme({
+    typography: {
     button: {
-      backgroundColor: Colors.secondary,
-      marginTop: '1em',
-      color: Colors.primary
+        color: 'white',
+        marginTop: '1em',
+        backgroundColor: Colors.secondary
     },
-  }));
+}
+  });
+
 
 
 
 const LandingHeader = props => {
-    const styles = useStyles();
-    const buttonStyles = usebuttonStyles()
     const banner = props.bannerImage;
-    // const inputStyle = inputStyles();
+
      return (
         <div>
         <Grid alignItems="center" container spacing={2}>
-            <Grid classes={{item:styles.item}} item xs={12} sm={5}>
+            <Grid item xs={12} sm={5}>
                 <h1>Need Security?</h1>
                 <p>We are a security company offering a range of services</p>
                 <div style={{'width': '70%', 'margin': 'auto'}}className={classes.Mobile}     >
@@ -53,19 +44,21 @@ const LandingHeader = props => {
                             <TextField margin="normal" type="string" fullWidth id="1" label="Your Name"  />
                             <TextField margin="normal" type="email" fullWidth id="2" label="Your Email" />
                             <TextField margin="normal" fullWidth multiline rows="8" fullWidth id="3" label="How can we help?" variant="outlined"/>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                className={buttonStyles.button}
-                                // endIcon={<Icon>send</Icon>}
-                            >
-                                Get In Touch
-                            </Button>
+                            <ThemeProvider theme={theme}>
+                                <Button
+                                    // variant="contained"
+                                    // color="primary"
+                                    
+                                    // endIcon={<Icon>send</Icon>}
+                                >
+                                    Get In Touch
+                                </Button>
+                            </ThemeProvider>
                         </form>
                     </div>
                 </Paper>
             </Grid>
-            <Grid classes={{item:styles.item}} alignItems="center" item xs={12} sm={7}>
+            <Grid alignItems="center" item xs={12} sm={7}>
                 <div className={classes.Desktop} style={{padding: '2em'}}>
                     <Img fluid={banner} />
                 </div>

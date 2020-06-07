@@ -20,6 +20,12 @@ Form {
     display: none;
 }
 
+.Button {
+    color: red;
+    margin-top: 1em;
+    background-color: #59F8E8;
+}
+
 .Desktop{
     display: block;
 }
