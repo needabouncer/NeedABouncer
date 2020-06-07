@@ -10,6 +10,7 @@ import LandingHeader from '../components/content/landingHeader/landingHeader';
 import ChipStrip from '../components/content/chipStrip/chipStrip';
 
 
+
 export default ({ data }) => {
   const doc = data.prismic.allHome_ps.edges.slice(0, 1).pop();
 

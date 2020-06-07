@@ -13,7 +13,7 @@ import {Colors} from '../../../constants/colors';
 
 const useStyles = makeStyles(() => ({
     item: {
-      minHeight: '70vh',
+    //   minHeight: '70vh',
     },
     heading : {
         padding: '0.1em'
@@ -33,13 +33,20 @@ const useStyles = makeStyles(() => ({
 const LandingHeader = props => {
     const styles = useStyles();
     const buttonStyles = usebuttonStyles()
+    const banner = props.bannerImage;
     // const inputStyle = inputStyles();
      return (
         <div>
         <Grid alignItems="center" container spacing={2}>
             <Grid classes={{item:styles.item}} item xs={12} sm={5}>
-            <h1>Need Security?</h1>
-             <p>We are a security company offering a range of services</p>
+                <h1>Need Security?</h1>
+                <p>We are a security company offering a range of services</p>
+                <div style={{'width': '70%', 'margin': 'auto'}}className={classes.Mobile}     >
+                    <Img fluid={banner} />
+                </div>
+                <div className={classes.Mobile}     >
+                    <h3>Let's chat!</h3>
+                </div>
                 <Paper>
                     <div className={classes.FormContainer}>
                         <form className={classes.Form} noValidate autoComplete="off">
@@ -58,9 +65,9 @@ const LandingHeader = props => {
                     </div>
                 </Paper>
             </Grid>
-            <Grid classes={{item:styles.item}} item xs={12} sm={7}>
-                <div style={{padding: '2em'}}>
-                    <Img fluid={props.bannerImage} />
+            <Grid classes={{item:styles.item}} alignItems="center" item xs={12} sm={7}>
+                <div className={classes.Desktop} style={{padding: '2em'}}>
+                    <Img fluid={banner} />
                 </div>
             </Grid>
         </Grid>

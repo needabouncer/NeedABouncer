@@ -47,6 +47,30 @@ query MyPageQuery($uid: String) {
                     heading
                   }
                 }
+                ... on PRISMIC_PageBodyCard {
+                  type
+                  label
+                  primary {
+                    title1
+                    link {
+                      ... on PRISMIC__ExternalLink {
+                        _linkType
+                      }
+                    }
+                    image
+                    imageSharp {
+                      childImageSharp {
+                        fluid {
+                          ...GatsbyImageSharpFluid
+                        }
+                        fixed {
+                          ...GatsbyImageSharpFixed
+                        }
+                      }
+                    }
+                    card_text
+                  }
+                }
                 ... on PRISMIC_PageBodyImage {
                   type
                   label

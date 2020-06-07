@@ -5,15 +5,19 @@ import { makeStyles } from '@material-ui/core/styles';
 import { RichText } from "prismic-reactjs";
 import ChipText from './chipText/chipText';
 import { Colors } from '../../../constants/colors';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const useStyles = makeStyles(() => ({
     item: {
-      height: '400px',
       display: 'flex',
+      height: '100%',
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
       margin: '2em 0',
+    },
+    MuiGridGridXs12: {
+        height: 'auto',
     },
     side: {
         backgroundColor: Colors.secondary,
@@ -26,18 +30,20 @@ const ChipStrip = props => {
     const styles = useStyles();
 
     return (
+        <ScrollAnimation animateIn={classes.Slide} animateOnce>
         <Grid alignItems="center" container >
-            <Grid classes={{item:[styles.item, styles.side].join(' ')}} item xs={12} sm={4}>
-                <div className={classes.InfoContainer}>
-                    {RichText.render(props.text)}
-                </div>
-            </Grid>
+                <Grid classes={{item:[styles.item, styles.side].join(' ')}} item xs={12} sm={4}>
+                    <div className={classes.InfoContainer}>
+                        {RichText.render(props.text)}
+                    </div>
+                </Grid>
             <Grid classes={{item:styles.item}} item xs={12} sm={8}>
-            <div className={classes.ChipContainer}>
-                {props.chips.map(chip => <ChipText label={chip.text} />)}
-            </div>
+                <div className={classes.ChipContainer}>
+                    {props.chips.map(chip => <ChipText label={chip.text} />)}
+                </div>
+                </Grid>
             </Grid>
-        </Grid>
+        </ScrollAnimation>
     )
 }
 

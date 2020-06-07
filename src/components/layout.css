@@ -1,3 +1,19 @@
+html, body, h1, h2, h3, p {
+  color: #03191E
+}
+
+a {
+  color: #003161;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: #59F8E8
+
+}
+
+a:hover {
+  color: #59F8E8
+}
+
 /* html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
