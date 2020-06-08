@@ -16,7 +16,6 @@ export default ({ data }) => {
 
   if (!doc) return null
 
-
   return (
     <React.Fragment>
       <SEO title="Home" />
@@ -61,7 +60,7 @@ export const query = graphql`query MyQuery {
           landing_imageSharp {
             childImageSharp {
               fluid {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_tracedSVG
               }
               fixed {
                 ...GatsbyImageSharpFixed
