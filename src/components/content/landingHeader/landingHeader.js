@@ -7,15 +7,18 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Img from "gatsby-image"
 import {Colors} from '../../../constants/colors';
+import { linkResolver } from '../../../utils/linkResolver';
+import { RichText } from 'prismic-reactjs';
 // import Icon from '@material-ui/core/Icon';
 
 
 const theme = createMuiTheme({
     typography: {
     button: {
-        color: 'white',
+        // color: 'white',
         marginTop: '1em',
-        backgroundColor: Colors.secondary
+        padding: '0.5em',
+        // backgroundColor: Colors.secondary,
     },
 }
   });
@@ -30,8 +33,7 @@ const LandingHeader = props => {
         <div>
         <Grid alignItems="center" container spacing={2}>
             <Grid item xs={12} sm={5}>
-                <h1>Need Security?</h1>
-                <p>We are a security company offering a range of services</p>
+                {RichText.render(props.text, linkResolver)} 
                 <div style={{'width': '70%', 'margin': 'auto'}}className={classes.Mobile}     >
                     <Img fluid={banner} />
                 </div>
@@ -46,8 +48,8 @@ const LandingHeader = props => {
                             <TextField margin="normal" fullWidth multiline rows="8" fullWidth id="3" label="How can we help?" variant="outlined"/>
                             <ThemeProvider theme={theme}>
                                 <Button
-                                    // variant="contained"
-                                    // color="primary"
+                                   variant="contained"
+                                    color="primary"
                                     
                                     // endIcon={<Icon>send</Icon>}
                                 >
