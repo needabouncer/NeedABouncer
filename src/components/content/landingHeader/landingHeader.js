@@ -51,7 +51,7 @@ const LandingHeader = props => {
                                 <Button
                                    variant="contained"
                                     color="primary"
-                                    
+                                    component="submit"
                                     // endIcon={<Icon>send</Icon>}
                                 >
                                     Get In Touch
