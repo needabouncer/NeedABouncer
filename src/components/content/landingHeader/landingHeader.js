@@ -44,14 +44,15 @@ const LandingHeader = props => {
                     <div className={classes.FormContainer}>
                         <form name="contact" method="POST" data-netlify="true" className={classes.Form} noValidate autoComplete="off">
                             <input type="hidden" name="form-name"  value="contact" />
-                            <TextField margin="normal" type="string" fullWidth id="1" label="Your Name"  />
-                            <TextField margin="normal" type="email" fullWidth id="2" label="Your Email" />
-                            <TextField margin="normal" fullWidth multiline rows="8" fullWidth id="3" label="How can we help?" variant="outlined"/>
+                            <TextField margin="normal" type="string" fullWidth id="1" label="Your Name" name="Name"  />
+                            <TextField margin="normal" type="email" fullWidth id="2" label="Your Email" name="Email" />
+                            <TextField margin="normal" fullWidth multiline rows="8" fullWidth id="3" name="Message" label="How can we help?" variant="outlined"/>
                             <ThemeProvider theme={theme}>
                                 <Button
+                                   type="submit" 
                                    variant="contained"
                                     color="primary"
-                                    component="submit"
+
                                     // endIcon={<Icon>send</Icon>}
                                 >
                                     Get In Touch
