@@ -42,7 +42,8 @@ const LandingHeader = props => {
                 </div>
                 <Paper>
                     <div className={classes.FormContainer}>
-                        <form className={classes.Form} noValidate autoComplete="off">
+                        <form name="contact" method="POST" data-netlify="true" className={classes.Form} noValidate autoComplete="off">
+                            <input type="hidden" name="form-name"  value="contact" />
                             <TextField margin="normal" type="string" fullWidth id="1" label="Your Name"  />
                             <TextField margin="normal" type="email" fullWidth id="2" label="Your Email" />
                             <TextField margin="normal" fullWidth multiline rows="8" fullWidth id="3" label="How can we help?" variant="outlined"/>
