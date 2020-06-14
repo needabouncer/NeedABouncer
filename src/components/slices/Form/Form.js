@@ -1,6 +1,8 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby";
 import NetlifyForm from '../../UI/form/form';
+import classes from './FormStyles.module.css';
+import Paper from '@material-ui/core/Paper';
 
 const Form = ({ slice }) => {
   const data = useStaticQuery(graphql`
@@ -32,20 +34,19 @@ const Form = ({ slice }) => {
   }
   `)
 
-  console.log('FORM')
-  console.log(data.prismic.allForms.edges)
-  console.log('SLICE FORM')
-  console.log(slice)
   let formData;
 
   if (data.prismic.allForms.edges){
     formData = data.prismic.allForms.edges.filter(form => {
-        console.log(form.node.form_id[0].text)
         return +form.node.form_id[0].text === +slice.primary.form_id}
     );
-    console.log('FILTERED');
-    console.log(formData[0])
-    return <NetlifyForm formData={formData[0]} />
+    return (
+    <div className={classes.Form}>
+        <Paper>
+            <NetlifyForm formData={formData[0]} />
+        </Paper>
+    </div>
+    )
   }
 
   else {

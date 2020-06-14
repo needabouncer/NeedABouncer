@@ -21,7 +21,7 @@ const NetlifyForm = (props) => {
         typography: {
         button: {
             // color: 'white',
-            marginTop: '1em',
+            margin: '1em 0',
             padding: '0.5em',
             // backgroundColor: Colors.secondary,
         },
@@ -32,7 +32,8 @@ const NetlifyForm = (props) => {
     if (data) {
         const inputs = data.node.body.map((input, i) => {
             const type = inputTypes[input.primary.input_type]
-            return <TextField 
+            return <TextField
+                        key={i + input.primary.label_text[0].text.split().join('')} 
                         margin="normal" 
                         type={type} 
                         fullWidth 
@@ -40,8 +41,10 @@ const NetlifyForm = (props) => {
                         label={input.primary.placeholder_text[0].text} 
                         name={input.primary.label_text[0].text} 
                         multiline={type === 'multiLine'}
-                        rows = {type === 'multiLine'? 8 : ''}
+                        required={input.primary.required}
+                        rows='8'
                         variant={type==='multiLine' ? 'outlined' : 'standard'}
+                        
                     />
         })
 
@@ -49,7 +52,7 @@ const NetlifyForm = (props) => {
         
     
         return (
-            <form name={data.node.form_title[0].text} method="POST" data-netlify="true" className={classes.Form} noValidate autoComplete="off">
+            <form validate name={data.node.form_title[0].text} method="POST" data-netlify="true"  className={classes.Form} >
                 <input type="hidden" name="form-name"  value={data.node.form_title[0].text} />
                 {inputs}
                 <ThemeProvider theme={theme}>

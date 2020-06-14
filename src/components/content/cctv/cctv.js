@@ -1,6 +1,5 @@
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image";
 import classes from './cctvStyles.module.css';
 
 
@@ -19,13 +18,9 @@ const CCTV = props => {
     }
   `)
 
-  console.log('Image data')
-  console.log(data)
-
   return (
     <div className={classes.CCTV}>
-        <img src={data.placeholderImage.publicURL} alt="CCTV image" />
-        {/* <Img fluid={data.placeholderImage.childImageSharp.fluid} /> */}
+        <img src={data.placeholderImage.publicURL} alt="CCTV" />
     </div>
   )
 }
