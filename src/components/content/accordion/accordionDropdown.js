@@ -22,15 +22,15 @@ const AccordionDropdown = props => {
 
     
     return (
-        <ScrollAnimation animateIn={classes.Slide} animateOnce offset="110">
-            <li>
-                <ExpansionPanel>
+            <li role="presentation">
+                <ScrollAnimation animateIn={classes.Slide} animateOnce offset="110">
+                    <ExpansionPanel>
                         <ExpansionPanelSummary
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                         >
-                            <Typography className={styles.heading}>{props.title}</Typography>
+                                <Typography className={styles.heading}>{props.title}</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
@@ -38,8 +38,8 @@ const AccordionDropdown = props => {
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
+                </ScrollAnimation>
             </li>
-        </ScrollAnimation>
     )
 }
 

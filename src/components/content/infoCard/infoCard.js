@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -34,8 +33,12 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles({
     root: {
-      maxWidth: 345,
-      margin: '2em 0'
+      width: 345,
+      height: 340,
+      margin: '2em 1em'
+    },
+    card: {
+      cursor: 'auto'
     },
     media: {
       height: 140,
@@ -50,7 +53,7 @@ const useStyles = makeStyles({
     <ScrollAnimation animateIn={styles.Slide} animateOnce offset="110">
        <ThemeProvider theme={theme}>
         <Card className={classes.root}>
-          <CardActionArea>
+          <CardActionArea className={classes.card} disabled component="div">
             <CardMedia
               className={classes.media}
               image={props.image}
@@ -66,7 +69,7 @@ const useStyles = makeStyles({
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" color="primary">
+            <Button href={props.link} size="small" color="primary">
               More info
             </Button>
           </CardActions>

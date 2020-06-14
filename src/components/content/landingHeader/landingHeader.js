@@ -6,7 +6,7 @@ import classes from './landingHeaderStyles.module.css';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Img from "gatsby-image"
-import {Colors} from '../../../constants/colors';
+// import {Colors} from '../../../constants/colors';
 import { linkResolver } from '../../../utils/linkResolver';
 import { RichText } from 'prismic-reactjs';
 // import Icon from '@material-ui/core/Icon';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Text, Embed, Image, Accordion, Card } from './SliceTypes';
+import { Text, Embed, Image, Accordion, Card, Form } from './SliceTypes';
 
 
 const SliceRenderer = ({ slices }) => {
@@ -26,16 +26,23 @@ const SliceRenderer = ({ slices }) => {
                                 <Image slice={ slice} />
                             </div>                       
                         );
-                    case 'accordion':
+                    case 'form':
+                        return (
+                            <div key={ index} role="presentation"  className="page_slice_wrapper">
+                                <Form slice={ slice} />
+                            </div>                       
+                        );
+                    case 'group_acc':
                         return (
                             <div key={ index} role="presentation" className="page_slice_wrapper">
-                                <Accordion slice={ slice} />
+                                <Accordion slice={ slice.fields } />
                             </div>                       
                         );
                     case 'card':
+                        console.log("Found cards")
                         return (
                             <div key={ index} role="presentation" className="page_slice_wrapper">
-                                <Card slice={ slice} />
+                                <Card slice={ slice.fields } />
                             </div>                       
                         );
                     default: return;
