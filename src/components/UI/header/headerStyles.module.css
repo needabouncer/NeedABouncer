@@ -2,18 +2,18 @@
     display: flex;
     position: relative;
     width: 100%;
-    background-color: #003161;
+    background-color: black;
     justify-content: space-between;
     align-items: center;
     height: 4em;
-    border-bottom: 3px solid #59F8E8;
+    border-bottom: 3px solid #064F2E;
   }
   
   .linksContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #A5D0A8;
     margin-right: 2em;
   }
   
@@ -28,7 +28,7 @@
     display: inline-block;
     text-decoration: none;
     padding: 1em;
-    color: white;
+    color: #E3170A;
     height: 100%;
       font-size: 1em;
     text-align: center;
@@ -37,22 +37,37 @@
   
   .linksContainer ul li a {
     text-decoration: none;
-    color: white;
+    color: E3170A;
     font-weight: bold;
   }
   
   .linksContainer ul li a:hover {
-    color: #59F8E8;
+    color: #064F2E;
   }
   
   .logoContainer {
     width: 150px;
     height: 100%;
-    background-color: #59F8E8;
-    color: white;
+    background-color: #064F2E;
+    color: 'white';
+    text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .logoContainer a {
+    text-decoration: none!important;
+    color: white
+  }
+
+  .Home a {
+    text-decoration: none;
+    color: #A5D0A8;
+  }
+
+  .Home:active, .Home a:active {
+    color: black;
   }
   
   .logoContainer img {
@@ -68,13 +83,13 @@
     display: flex;
     justify-content: center;
       z-index: 1000;
-      background-color: #003161;
+      background-color: black;
       position: fixed;
       right: -65%;
       height: 100%;
       top: 0;
       width: 65%;
-      border-left: 3px solid #59F8E8;
+      border-left: 3px solid #064F2E;
       padding-top: 5em;
       transition: right 0.5s ease-in-out;
   }
@@ -91,7 +106,7 @@
     display: inline-block;
     text-decoration: none;
     padding: 0.5em;
-    color: white;
+    color: E3170A;
     font-size: 1em;
   }
   
@@ -109,14 +124,14 @@
     display: none;
     position: absolute;
     right: 30px;
-    background-color: #003161;
+    background-color: black;
     z-index: 10000;
   }
   
   .burgerTop, .burgerMiddle, .burgerBottom {
     height: 3px;
     width: 39px;
-    background-color: white;
+    background-color: E3170A;
     display: block;
     margin: 0.4em 0;
   }

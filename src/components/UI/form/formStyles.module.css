@@ -6,3 +6,8 @@ Form {
     justify-content: center;
     padding: 0 1em;
 }
+
+.MuiButton-containedPrimary-56 {
+    color: #fff;
+    background-color: #d33e43;
+}

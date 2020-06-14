@@ -19,6 +19,7 @@ const LandingHeader = props => {
                 <div style={{'width': '70%', 'margin': 'auto'}}className={classes.Mobile}     >
                     <Img fluid={banner} />
                 </div>
+                
                 <div className={classes.Mobile}     >
                     <h3>Let's chat!</h3>
                 </div>

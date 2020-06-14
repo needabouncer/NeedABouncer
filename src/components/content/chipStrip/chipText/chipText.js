@@ -1,11 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
+import { Colors } from '../../../../constants/colors';
 
 const useStyles = makeStyles(() => ({
     chip: {
         margin: '0.5em',
-        backgroundColor: '#003161',
+        backgroundColor: Colors.dark,
         padding: '1em',
         // borderColor: Colors.primary,
         fontSize: '18px',
