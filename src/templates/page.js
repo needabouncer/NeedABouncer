@@ -39,12 +39,43 @@ query MyPageQuery($uid: String) {
                     embed_link
                   }
                 }
-                ... on PRISMIC_PageBodyAccordion {
+                ... on PRISMIC_PageBodyForm {
                   type
                   label
                   primary {
+                    form_id
+                  }
+                }
+                ... on PRISMIC_PageBodyGroup_acc {
+                  fields {
                     content
-                    heading
+                    title1
+                  }
+                  type
+                  label
+                }
+                ... on PRISMIC_PageBodyCard {
+                  type
+                  label
+                  fields {
+                    image
+                    card_text
+                    title1
+                    link {
+                      ... on PRISMIC__ExternalLink {
+                        url
+                      }
+                    }
+                    imageSharp {
+                      childImageSharp {
+                        fluid {
+                          ...GatsbyImageSharpFluid
+                        }
+                        fixed {
+                          ...GatsbyImageSharpFixed
+                        }
+                      }
+                    }
                   }
                 }
                 ... on PRISMIC_PageBodyImage {
@@ -82,11 +113,8 @@ export default ({ data }) => {
         <CCTV />
         <PageContent>
           <h1>{RichText.asText(doc.node.title)}</h1>
-          <span>
-            {/* <img src={doc.node.page_banner.url}></img> */}
-          </span>
-            <div>{RichText.render(doc.node.text)}</div>
-            <SliceRenderer slices={doc.node.body} />
+          <div>{RichText.render(doc.node.text)}</div>
+          <SliceRenderer slices={doc.node.body} />
         </PageContent>
       </Layout>
     )

@@ -3,12 +3,15 @@ import AccordionDropdown from '../../content/accordion/accordionDropdown';
 import classes from './AccordionStyles.module.css';
 
 const Accordion = ({ slice }) => {
-
     if(slice){ 
+
+        const accordions = slice.map((slice, i) => {
+            return <AccordionDropdown key={i} title={slice.title1[0].text} content={slice.content} />
+        })
         
         return (
             <ul className={classes.AccordionContainer}>
-                <AccordionDropdown title={slice.primary.heading[0].text} content={slice.primary.content} />
+                {accordions}
             </ul>
         )
         

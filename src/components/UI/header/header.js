@@ -4,9 +4,10 @@ import { Link } from 'gatsby'
 import MenuLinks from './menuLinks.js'
 import Burger from './burger.js'
 import HeaderStyles from "./headerStyles.module.css"
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
+import {Colors} from '../../../constants/colors';
 
-// import logo from './logo.png'
+import home from '../../../images/Home.png';
 
 const Header = props => {
 
@@ -72,10 +73,14 @@ const Header = props => {
 
  return   (
    <div className={HeaderStyles.container}>
-        <div className={HeaderStyles.logoContainer}>
-            {/* <Link to="/"><img alt="mbrfilms logo" src={logo} /></Link> */}
-            <Link to="/" activeStyle={{color: '#59F8E8'}}>Home</Link>
-        </div>
+            <div style={{'height': '100%'}}>
+            <Link activeStyle={{backgroundColor: Colors.primary}} to="/">
+              <div className={HeaderStyles.logoContainer}>
+                <img alt="Home Icon" src={home} />
+              </div>
+            </Link>
+            </div>
+              {/* <Link to="/" activeStyle={{color: Colors.primary}}>Home</Link> */}
         <MenuLinks links={filterMenuLinks()}class={HeaderStyles.linksContainer} />
         <MenuLinks links={filterMenuLinks()} class={burgerClass} />
         <Burger onClick={toggleActiveMenu} />

@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
     height: 4em;
-    /* border-bottom: 1px solid #59F8E8; */
+    border-bottom: 3px solid #59F8E8;
   }
   
   .linksContainer {
@@ -20,6 +20,7 @@
   .linksContainer ul {
     margin: 0;
   }
+
   
   
   .linksContainer ul li {
@@ -45,8 +46,13 @@
   }
   
   .logoContainer {
-    width: 10em;
-    padding: 1.5em;
+    width: 150px;
+    height: 100%;
+    background-color: #59F8E8;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .logoContainer img {
@@ -54,21 +60,23 @@
     height: auto;
     overflow: hidden;
     margin: 0;
+    width: 30px;
+    margin-top: 5px;
   }
   
   .burgerLinks {
     display: flex;
     justify-content: center;
       z-index: 1000;
-      background-color: black;
+      background-color: #003161;
       position: fixed;
-      right: -60%;
+      right: -65%;
       height: 100%;
       top: 0;
-      width: 60%;
+      width: 65%;
       border-left: 3px solid #59F8E8;
       padding-top: 5em;
-      transition: right 1.5s ease-in-out;
+      transition: right 0.5s ease-in-out;
   }
   
   .activeBurger {
@@ -101,7 +109,7 @@
     display: none;
     position: absolute;
     right: 30px;
-    background-color: black;
+    background-color: #003161;
     z-index: 10000;
   }
   
@@ -117,7 +125,7 @@
   
   @media only screen and (max-width: 780px){
     .container {
-      height: 5em;
+      height: 4em;
     }
   
     .burgerContainer {

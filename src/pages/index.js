@@ -14,18 +14,18 @@ import LandingHeader from '../components/content/landingHeader/landingHeader';
 import ChipStrip from '../components/content/chipStrip/chipStrip';
 
 
+
 export default ({ data }) => {
   const doc = data.prismic.allHome_ps.edges.slice(0, 1).pop();
 
   if (!doc) return null
 
-
   return (
     <React.Fragment>
-      <SEO title="Home" />
+      <SEO title="Security Services" />
       <Layout>
         <PageContent>
-          <LandingHeader bannerImage={doc.node.landing_imageSharp.childImageSharp.fluid} ></LandingHeader>
+          <LandingHeader formData={doc.node.body[0]}  text={doc.node.call_to_action} bannerImage={doc.node.landing_imageSharp.childImageSharp.fluid} ></LandingHeader>
           <ChipStrip chips={doc.node.primary_services} text={doc.node.sectionPrimaryServices}/>
           <ChipStrip chips={doc.node.other_services} text={doc.node.section__other_services}/>
         </PageContent>
@@ -40,6 +40,13 @@ export const query = graphql`query MyQuery {
       edges {
         node {
           body {
+            ... on PRISMIC_Home_pBodyForm {
+              type
+              label
+              primary {
+                form_id
+              }
+            }
             ... on PRISMIC_Home_pBodyButton {
               type
               label
@@ -64,7 +71,7 @@ export const query = graphql`query MyQuery {
           landing_imageSharp {
             childImageSharp {
               fluid {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_tracedSVG
               }
               fixed {
                 ...GatsbyImageSharpFixed
