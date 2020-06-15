@@ -3,6 +3,7 @@ import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import classes from './formStyles.module.css';
+import {Colors} from '../../../constants/colors';
 
 const NetlifyForm = (props) => {
 
@@ -18,13 +19,21 @@ const NetlifyForm = (props) => {
     }
 
     const theme = createMuiTheme({
-        typography: {
-        button: {
-            // color: 'white',
-            margin: '1em 0',
-            padding: '0.5em',
-            // backgroundColor: Colors.secondary,
+        palette: {
+            primary: {
+              // light: will be calculated from palette.primary.main,
+              main: Colors.primary,
+              // dark: will be calculated from palette.primary.main,
+              // contrastText: will be calculated to contrast with palette.primary.main
+            },
         },
+        typography: {
+            button: {
+                primary: 'red',
+                margin: '1em 0',
+                padding: '0.5em',
+                backgroundColor: Colors.secondary,
+            },
     }
       });
 

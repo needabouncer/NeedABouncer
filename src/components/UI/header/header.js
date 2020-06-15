@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 import {Colors} from '../../../constants/colors';
 
 import home from '../../../images/Home.png';
+import { mergeClasses } from '@material-ui/styles';
 
 const Header = props => {
 
@@ -73,12 +74,12 @@ const Header = props => {
 
  return   (
    <div className={HeaderStyles.container}>
-            <div style={{'height': '100%'}}>
-            <Link activeStyle={{backgroundColor: Colors.primary}} to="/">
-              <div className={HeaderStyles.logoContainer}>
-                <img alt="Home Icon" src={home} />
-              </div>
-            </Link>
+            <div className={HeaderStyles.Home} style={{'height': '100%'}}>
+              <Link activeStyle={{color: 'white'}} to="/">
+                <div className={HeaderStyles.logoContainer}>
+                    Home
+                </div>
+             </Link>
             </div>
               {/* <Link to="/" activeStyle={{color: Colors.primary}}>Home</Link> */}
         <MenuLinks links={filterMenuLinks()}class={HeaderStyles.linksContainer} />
