@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Kylo Robinson Template Website`,
-    description: `A template Gatsby JS site built by Kylo Robinsom`,
+    title: `Need a Bouncer`,
+    description: `Security services, training, careers and more.`,
     author: `@kylorobs`,
   },
   plugins: [
@@ -19,8 +19,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Kylo Robinson Template`,
-        short_name: `kylo_robinson`,
+        name: `Need A Bouncer`,
+        short_name: `Need A Bouncer`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
@@ -40,13 +40,13 @@ module.exports = {
     {
       resolve: `gatsby-source-prismic-graphql`,
       options: {
-        repositoryName: 'gatsby-test-kylo',
+        repositoryName: 'needabouncer',
         previews: true, 
         path: '/preview',
         pages: [{
           type: 'Page',          // Custom type of the document
           match: '/:uid',   // Pages will be generated in this pattern
-          path: '/blog-preview', // Placeholder route for previews
+          path: '/page-preview', // Placeholder route for previews
           component: require.resolve('./src/templates/page.js') // Template file
         }]
       }

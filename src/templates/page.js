@@ -16,7 +16,6 @@ query MyPageQuery($uid: String) {
           edges {
             node {
               title
-              page_banner
               text
               _linkType
               _meta {
