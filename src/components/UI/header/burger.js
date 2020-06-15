@@ -4,15 +4,16 @@ import HeaderStyles from "./headerStyles.module.css"
 const Burger = (props) => {
 
   function clickHandler(e){
+    e.preventDefault();
     props.onClick();
   }
 
  return (
-      <div onClick={clickHandler} className={HeaderStyles.burgerContainer}>
+      <a onClick={clickHandler} href="#" className={HeaderStyles.burgerContainer}>
         <div className= {HeaderStyles.burgerTop}></div>
         <div className= {HeaderStyles.burgerMiddle}></div>
         <div className= {HeaderStyles.burgerBottom}></div>
-      </div>
+      </a>
     )
 
   }

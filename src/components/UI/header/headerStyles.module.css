@@ -131,7 +131,7 @@
   .burgerTop, .burgerMiddle, .burgerBottom {
     height: 3px;
     width: 39px;
-    background-color: E3170A;
+    background-color: #E3170A;
     display: block;
     margin: 0.4em 0;
   }

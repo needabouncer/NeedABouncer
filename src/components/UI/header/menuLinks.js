@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Colors } from '../../../constants/colors';
 
 const MenuLinks = (props) => {
 
