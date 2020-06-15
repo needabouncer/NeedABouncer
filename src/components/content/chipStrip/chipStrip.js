@@ -20,9 +20,9 @@ const useStyles = makeStyles(() => ({
         height: 'auto',
     },
     side: {
-        backgroundColor: Colors.secondary,
+        backgroundColor: Colors.salmon,
         padding: '1em',
-        color: Colors.dark
+        color: Colors.primary
     }
   }));
 

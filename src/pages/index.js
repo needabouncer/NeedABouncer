@@ -1,12 +1,7 @@
 import React from "react"
-<<<<<<< HEAD
-import {  graphql } from "gatsby"
-=======
 import { graphql } from "gatsby"
->>>>>>> dev
 
 import Layout from "../components/layout"
-// import Image from "../components/image"
 import SEO from "../components/seo"
 import PageContent from '../components/layout/pageContent';
 
