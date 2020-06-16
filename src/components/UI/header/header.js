@@ -5,10 +5,7 @@ import MenuLinks from './menuLinks.js'
 import Burger from './burger.js'
 import HeaderStyles from "./headerStyles.module.css"
 import PropTypes from "prop-types";
-import {Colors} from '../../../constants/colors';
 
-import home from '../../../images/Home.png';
-import { mergeClasses } from '@material-ui/styles';
 
 const Header = props => {
 
