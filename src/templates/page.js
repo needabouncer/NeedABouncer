@@ -2,11 +2,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { RichText } from "prismic-reactjs";
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
 import SliceRenderer from '../components/slices/SliceRenderer';
 import PageContent from '../components/layout/pageContent';
 import CCTV from '../components/content/cctv/cctv';
-
+import SEO from '../components/seo';
 
 
 export const query = graphql`
@@ -108,14 +108,17 @@ export default ({ data }) => {
     const doc = data.prismic.allPages.edges.slice(0, 1).pop()
     if (!doc) return null
     return (
-      <Layout>
-        <CCTV />
-        <PageContent>
-          <h1>{RichText.asText(doc.node.title)}</h1>
-          <div>{RichText.render(doc.node.text)}</div>
-          <SliceRenderer slices={doc.node.body} />
-        </PageContent>
-      </Layout>
+      <React.Fragment>
+        <SEO title={doc.node.title[0].text} />
+        <Layout>
+          <CCTV />
+          <PageContent>
+            <h1>{RichText.asText(doc.node.title)}</h1>
+            <div>{RichText.render(doc.node.text)}</div>
+            <SliceRenderer slices={doc.node.body} />
+          </PageContent>
+        </Layout>
+      </React.Fragment>
     )
   }
 

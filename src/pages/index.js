@@ -1,13 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 import PageContent from '../components/layout/pageContent';
 
 import LandingHeader from '../components/content/landingHeader/landingHeader';
 import ChipStrip from '../components/content/chipStrip/chipStrip';
-
 
 
 export default ({ data }) => {
@@ -17,7 +16,7 @@ export default ({ data }) => {
 
   return (
     <React.Fragment>
-      <SEO title="Security Services" />
+      <SEO title="Need a Bouncer - Security Services" />
       <Layout>
         <PageContent>
           <LandingHeader formData={doc.node.body[0]}  text={doc.node.call_to_action} bannerImage={doc.node.landing_imageSharp.childImageSharp.fluid} ></LandingHeader>
