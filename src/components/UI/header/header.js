@@ -67,13 +67,16 @@ const Header = props => {
       burgerClass.push(HeaderStyles.activeBurger);
     }
     burgerClass = burgerClass.join(' ')
-
+ 
+    console.log("Logo")
+    console.log(doc.node)
 
  return   (
    <div className={HeaderStyles.container}>
             <div className={HeaderStyles.Home} style={{'height': '100%'}}>
               <Link activeStyle={{color: 'white'}} to="/">
                 <div className={HeaderStyles.logoContainer}>
+                    
                     Home
                 </div>
              </Link>
