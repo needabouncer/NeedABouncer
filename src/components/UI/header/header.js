@@ -68,7 +68,7 @@ const Header = props => {
       burgerClass.push(HeaderStyles.activeBurger);
     }
     burgerClass = burgerClass.join(' ')
- 
+    
     const logo = doc.node.body.filter(node => node.type === 'logo');
     
  return   (
@@ -76,7 +76,7 @@ const Header = props => {
             <div className={HeaderStyles.Home} style={{'height': '100%'}}>
               <Link activeStyle={{color: 'white'}} to="/">
                 <div className={HeaderStyles.logoContainer}>
-                    {logo? <img src={logo[0].primary.logo_image.url} alt="Need A Bouncer Logo"></img> : null }
+                    {logo.length> 0? <img src={logo[0].primary.logo_image.url} alt="Need A Bouncer Logo"></img> : null }
                     <span style={{"padding": "0 0.5em"}}>Home</span>
                 </div>
              </Link>
