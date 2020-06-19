@@ -8,8 +8,6 @@ import {Colors} from '../../../constants/colors';
 const NetlifyForm = (props) => {
 
     const data = props.formData;
-    console.log("props received")
-    console.log(data)
 
     const inputTypes = {
         'text': 'string',
