@@ -76,8 +76,7 @@ const Header = props => {
             <div className={HeaderStyles.Home} style={{'height': '100%'}}>
               <Link activeStyle={{color: 'white'}} to="/">
                 <div className={HeaderStyles.logoContainer}>
-                    
-                    Home
+                    Logo
                 </div>
              </Link>
             </div>
