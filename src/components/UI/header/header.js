@@ -30,6 +30,7 @@ const Header = props => {
                 type
                 label
                 primary {
+                  logo_image
                   logo_imageSharp {
                     childImageSharp {
                       fluid {
@@ -67,18 +68,20 @@ const Header = props => {
       burgerClass.push(HeaderStyles.activeBurger);
     }
     burgerClass = burgerClass.join(' ')
-
-
+ 
+    const logo = doc.node.body.filter(node => node.type === 'logo');
+    
  return   (
    <div className={HeaderStyles.container}>
             <div className={HeaderStyles.Home} style={{'height': '100%'}}>
               <Link activeStyle={{color: 'white'}} to="/">
                 <div className={HeaderStyles.logoContainer}>
-                    Home
+                    {logo? <img src={logo[0].primary.logo_image.url} alt="Need A Bouncer Logo"></img> : null }
+                    <span style={{"padding": "0 0.5em"}}>Home</span>
                 </div>
              </Link>
             </div>
-              {/* <Link to="/" activeStyle={{color: Colors.primary}}>Home</Link> */}
+             
         <MenuLinks links={filterMenuLinks()}class={HeaderStyles.linksContainer} />
         <MenuLinks links={filterMenuLinks()} class={burgerClass} />
         <Burger onClick={toggleActiveMenu} />

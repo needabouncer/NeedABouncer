@@ -54,6 +54,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+     padding: 0.2em;
+     overflow: hidden;
   }
 
   .logoContainer a {
@@ -71,27 +73,27 @@
   }
   
   .logoContainer img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     overflow: hidden;
     margin: 0;
-    width: 30px;
-    margin-top: 5px;
+    /* padding: 1em; */
+    margin-top: px;
   }
   
   .burgerLinks {
     display: flex;
     justify-content: center;
-      z-index: 1000;
-      background-color: black;
-      position: fixed;
-      right: -65%;
-      height: 100%;
-      top: 0;
-      width: 65%;
-      border-left: 3px solid #064F2E;
-      padding-top: 5em;
-      transition: right 0.5s ease-in-out;
+    z-index: 1000;
+    background-color: black;
+    position: fixed;
+    right: -65%;
+    height: 100%;
+    top: 0;
+    width: 65%;
+    border-left: 3px solid #064F2E;
+    padding-top: 5em;
+    transition: right 0.5s ease-in-out;
   }
   
   .activeBurger {
@@ -152,7 +154,7 @@
     }
   
     .logoContainer {
-      width: 8em;
-      padding: 1em;
+      min-width: 8em;
+      padding: 0.3em;
     }
   }
