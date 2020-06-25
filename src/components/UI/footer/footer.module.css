@@ -21,6 +21,14 @@ footer hr {
   text-decoration: none;
 }
 
+.madeby {
+  display: block;
+}
+
+.attribution {
+  font-size: 10px;
+}
+
 .madeby a {
     font-size: 16px;
     color: #064F2E;
