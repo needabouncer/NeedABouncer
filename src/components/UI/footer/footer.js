@@ -30,9 +30,10 @@ const Footer = () => {
     <div className={FooterStyles.container}>
       <hr></hr>
       <div className={FooterStyles.footer}>
-        <small className={FooterStyles.madeby}><a href="portfolio.thinktraincreate.com"> made by Kylo Robinson</a> </small>
+        <small className={FooterStyles.madeby}><a href="kylorobinson.codeimagined.com"> made by Kylo Robinson</a> </small>
         <small className={FooterStyles.email}>{RichText.render(doc.node.contact)}</small>
       </div>
+      <small className={FooterStyles.attribution}><a href="/attribution"> image attribution</a> </small>
     </div>
   </footer>
   )
